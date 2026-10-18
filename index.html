@@ -1,12 +1,160 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hu">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Budapesti Madarak</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath fill='%234caf50' d='M16 2c-4 0-8 2-8 6s2 6 6 6 6-2 6-6-4-6-6-6zm0 26c-4 0-8-2-8-6s2-6 6-6 6 2 6 6-4 6-6 6z'/%3E%3Cpath fill='%23ff6b6b' d='M20 10c0 2-2 4-4 4s-4-2-4-4 2-4 4-4 4 2 4 4z'/%3E%3Cpath fill='%23ffd700' d='M16 14c0 1-1 2-2 2s-2-1-2-2 1-2 2-2 2 1 2 2z'/%3E%3C/svg%3E">
 </head>
 <body>
-    <h1>madar</h1>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A nam, deleniti quae animi placeat, aperiam nostrum debitis sapiente sit, optio quia facilis culpa enim cupiditate vero repellendus doloremque. Et, nam?</p>
+    <header>
+        <h1>Budapesti Madaraink</h1>
+        <p class="intro">Ez az oldal Budapest leggyakoribb madárfajainak bemutatására készült. Itt megtudhatod, milyen madarakat láthatsz a város parkjaiban, sétányain és a Duna-parton, valamint érdekes tudnivalókat is olvashatsz róluk.</p>
+    </header>
+
+    <main>
+        <section class="bird-card">
+            <img src="images/tokes_rece.jpg" alt="Tőkés réce">
+            <div class="bird-info">
+                <h2>Tőkés réce (Anas platyrhynchos)</h2>
+                <p>A tőkés réce a leggyakoribb vízimadár Budapesten. A Duna-parton, a Városligeti-tóban és más vízfelületeken is nagy számban megtalálható. A hím (gácsér) fémesen csillogó zöld fejjel és fehér nyakörvvel rendelkezik, míg a tojó müves, barna-szürke rejtőszínű. Évente többször is fészkelhet, és fiókáit gyakran látni a vízpartok közelében.</p>
+            </div>
+        </section>
+
+        <section class="bird-card">
+            <img src="images/szencinege.jpg" alt="Széncinege">
+            <div class="bird-info">
+                <h2>Széncinege (Parus major)</h2>
+                <p>A széncinege egy kis termetű, színes madár, amely Budapest parkjaiban és kertjeiben rendkívül gyakori. Fehér orcájáról, fekete sapkájáról és sárga-zöldes tollazatáról könnyen felismerhető. A téli hónapokban szívesen látogatja a madáretetőket, ahol magvakat és olajos magvakat vagy faggyút fogyaszt.</p>
+            </div>
+        </section>
+
+        <section class="bird-card">
+            <img src="images/parlagi_galamb.jpg" alt="Parlagi galamb">
+            <div class="bird-info">
+                <h2>Parlagi galamb (Columba livia domestica)</h2>
+                <p>A városokban és Budapest utcáin mindenhol jelen lévő madár a parlagi galamb. Őse a szirtigalamb, de teljesen alkalmazkodott a városi környezethez. Gyakran láthatók a tereken és az épületek stukkóin, ahol szívesen táplálkoznak az emberek által elszórt élelemből. Intelligens és könnyen megfigyelhető madarak.</p>
+            </div>
+        </section>
+
+        <section class="bird-card">
+            <img src="images/mezei_vereb.jpg" alt="Mezei veréb">
+            <div class="bird-info">
+                <h2>Mezei veréb (Passer montanus)</h2>
+                <p>A mezei veréb egy kistermetű, barna-szürke madár, amely Budapest kertjeiben és parkjaiban gyakran feltűnik. Gesztenyebarna sapkájáról és a fehér orcáján található fekete foltról ismerhető fel. Épületrésekbe és odvakba építi fészkét, tápláléka főként magvakból és rovarokból áll.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <h2>Regisztráció</h2>
+        <p>Iratkozz fel hírlevelünkre, hogy mindig frissen tájékozódj Budapest madarairól!</p>
+        <form id="registrationForm">
+            <div class="form-group">
+                <label for="name">Név: <span class="required">*</span></label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">E-mail cím: <span class="required">*</span></label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="interest">Érdeklődési kör:</label>
+                <select id="interest" name="interest">
+                    <option value="madarmegfigyelo">Madármegfigyelő</option>
+                    <option value="termeszetbarat">Természetbarát</option>
+                    <option value="diak">Diák</option>
+                    <option value="egyeb">Egyéb</option>
+                </select>
+            </div>
+            <button type="submit" class="submit-btn">Regisztráció</button>
+        </form>
+        <div id="formMessage" class="form-message"></div>
+        <div class="permanent-warning registration-warning">
+            <p><strong>Figyelem:</strong> Ez nem igazi regisztráció, az csak fiktiv!</p>
+        </div>
+    </footer>
+
+    <section class="subscription">
+        <h2>Iratkozz fel hírlevelünkre!</h2>
+        <p>Válassz előfizetési csomagot Budapest madarairól szóló frissítésekhez!</p>
+        <form id="subscriptionForm">
+            <div class="form-group">
+                <label for="subEmail">E-mail címed: <span class="required">*</span></label>
+                <input type="email" id="subEmail" name="subEmail" placeholder="pelda@email.com" required>
+            </div>
+            <div class="form-group">
+                <label for="subName">Neved: <span class="required">*</span></label>
+                <input type="text" id="subName" name="subName" placeholder="Kérjük, adja meg a nevét" required>
+            </div>
+            <div class="form-group">
+                <label>Előfizetési időtartam: <span class="required">*</span></label>
+                <div class="option-cards duration-cards">
+                    <label class="option-card" id="duration-1nap">
+                        <input type="radio" name="duration" value="1nap" required>
+                        <div class="card-content">
+                            <div class="card-title">1 napos</div>
+                            <div class="card-price">490 Ft</div>
+                            <div class="card-desc">Időbeli felvétel</div>
+                        </div>
+                    </label>
+                    <label class="option-card" id="duration-1honomap">
+                        <input type="radio" name="duration" value="1honomap">
+                        <div class="card-content">
+                            <div class="card-title">1 hónapos</div>
+                            <div class="card-price">2 990 Ft</div>
+                            <div class="card-desc">Legnépszerűbb</div>
+                        </div>
+                    </label>
+                    <label class="option-card" id="duration-1ev">
+                        <input type="radio" name="duration" value="1ev">
+                        <div class="card-content">
+                            <div class="card-title">1 éves</div>
+                            <div class="card-price">29 990 Ft</div>
+                            <div class="card-desc">Legteljesebb</div>
+                        </div>
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Fizetési mód: <span class="required">*</span></label>
+                <div class="option-cards payment-cards">
+                    <label class="option-card" id="payment-googlepay">
+                        <input type="radio" name="payment" value="googlepay" required>
+                        <div class="card-content">
+                            <div class="card-title">Google Pay</div>
+                            <div class="card-desc">Gyors és biztonságos</div>
+                        </div>
+                    </label>
+                    <label class="option-card" id="payment-applepay">
+                        <input type="radio" name="payment" value="applepay">
+                        <div class="card-content">
+                            <div class="card-title">Apple Pay</div>
+                            <div class="card-desc">iPhone, iPad, Mac</div>
+                        </div>
+                    </label>
+                    <label class="option-card" id="payment-kartya">
+                        <input type="radio" name="payment" value="kartya">
+                        <div class="card-content">
+                            <div class="card-title">Bankkártya</div>
+                            <div class="card-desc">Visa, Mastercard</div>
+                        </div>
+                    </label>
+                </div>
+            </div>
+            <button type="submit" class="submit-btn">Feliratkozás</button>
+        </form>
+        <div id="subMessage" class="form-message"></div>
+        <div class="permanent-warning">
+            <p><strong>Figyelem:</strong> Ez nem igazi feliratkozás, az csak fiktiv!</p>
+        </div>
+    </section>
+
+    <div class="disclaimer">
+        <p><strong>Figyelmeztetés:</strong> Ez az oldal fiktív, kizárólag oktatási célokra készült házi feladat.</p>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
