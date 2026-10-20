@@ -342,11 +342,21 @@ function updateSunPosition() {
   const sunY = 70 - sunHeight * 55;
   const sunlight = clamp((altitudeDegrees + 6) / 41, 0, 1);
   const visibleSun = clamp((altitudeDegrees + 1) / 5, 0, 1);
+  const nightfall = clamp((2 - altitudeDegrees) / 10, 0, 1);
+  const moonRise = clamp((2 - altitudeDegrees) / 18, 0, 1);
+  const moonX = clamp(82 - Math.sin(hourAngle) * 14, 64, 96);
+  const moonY = 74 - moonRise * 54;
 
   heroArt.style.setProperty("--sun-x", `${sunX}%`);
   heroArt.style.setProperty("--sun-y", `${sunY}%`);
   heroArt.style.setProperty("--sun-opacity", visibleSun.toFixed(2));
   heroArt.style.setProperty("--sunlight-opacity", (sunlight * 0.85).toFixed(2));
+  heroArt.style.setProperty("--night-sky-opacity", nightfall.toFixed(2));
+  heroArt.style.setProperty("--stars-opacity", nightfall.toFixed(2));
+  heroArt.style.setProperty("--fire-glow-strength", `${(nightfall * 18).toFixed(1)}px`);
+  heroArt.style.setProperty("--moon-x", `${moonX}%`);
+  heroArt.style.setProperty("--moon-y", `${moonY}%`);
+  heroArt.style.setProperty("--moon-opacity", (nightfall * 0.95).toFixed(2));
 
   if (!initialSunPositionSet) {
     initialSunPositionSet = true;

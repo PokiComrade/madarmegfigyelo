@@ -201,6 +201,42 @@ h1 span {
   transform: rotate(-8deg);
 }
 
+.night-sky {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  background: linear-gradient(180deg, rgb(5 12 29 / 98%) 0%, rgb(9 20 39 / 88%) 38%, rgb(13 27 44 / 55%) 68%, transparent 88%);
+  opacity: var(--night-sky-opacity, 0);
+  pointer-events: none;
+}
+
+.stars {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  background-image:
+    radial-gradient(1px 1px at 8% 13%, #fff 99%, transparent),
+    radial-gradient(1px 1px at 17% 29%, #fff 99%, transparent),
+    radial-gradient(1.5px 1.5px at 24% 9%, #fff 99%, transparent),
+    radial-gradient(1px 1px at 33% 21%, #fff 99%, transparent),
+    radial-gradient(1px 1px at 41% 7%, #fff 99%, transparent),
+    radial-gradient(1px 1px at 49% 34%, #fff 99%, transparent),
+    radial-gradient(1.5px 1.5px at 57% 15%, #fff 99%, transparent),
+    radial-gradient(1px 1px at 65% 27%, #fff 99%, transparent),
+    radial-gradient(1px 1px at 73% 8%, #fff 99%, transparent),
+    radial-gradient(1px 1px at 82% 20%, #fff 99%, transparent),
+    radial-gradient(1.5px 1.5px at 91% 11%, #fff 99%, transparent),
+    radial-gradient(1px 1px at 96% 35%, #fff 99%, transparent),
+    radial-gradient(1px 1px at 12% 43%, #fff 99%, transparent),
+    radial-gradient(1px 1px at 29% 48%, #fff 99%, transparent),
+    radial-gradient(1px 1px at 68% 45%, #fff 99%, transparent),
+    radial-gradient(1px 1px at 88% 42%, #fff 99%, transparent);
+  opacity: var(--stars-opacity, 0);
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 48%, transparent 76%);
+  mask-image: linear-gradient(to bottom, #000 0%, #000 48%, transparent 76%);
+  pointer-events: none;
+}
+
 .sun {
   position: absolute;
   top: var(--sun-y, 15%);
@@ -212,6 +248,19 @@ h1 span {
   box-shadow: 0 0 70px rgb(240 211 147 / 32%);
   opacity: var(--sun-opacity, 1);
   transform: translate(-50%, -50%);
+}
+
+.moon {
+  position: absolute;
+  top: var(--moon-y, 74%);
+  left: var(--moon-x, 82%);
+  width: 58px;
+  overflow: visible;
+  fill: #f6edcf;
+  filter: drop-shadow(0 0 12px rgb(246 237 207 / 40%)) drop-shadow(0 0 28px rgb(205 220 231 / 18%));
+  opacity: var(--moon-opacity, 0);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
 }
 
 .sunlight {
@@ -230,7 +279,9 @@ h1 span {
 }
 
 .solar-position-ready .sun,
-.solar-position-ready .sunlight {
+.solar-position-ready .moon,
+.solar-position-ready .sunlight,
+.solar-position-ready .stars {
   transition: left 60s linear, top 60s linear, opacity 4s ease;
 }
 
@@ -298,8 +349,10 @@ h1 span {
 }
 
 .camp-fire {
+  filter: drop-shadow(0 0 var(--fire-glow-strength, 0px) rgb(255 112 42 / 90%));
   transform-box: fill-box;
   transform-origin: center bottom;
+  transition: filter 4s ease;
 }
 
 .flame-glow {
@@ -1581,6 +1634,10 @@ h1 span {
 
   .sun {
     width: 92px;
+  }
+
+  .moon {
+    width: 44px;
   }
 
   .sunlight {
