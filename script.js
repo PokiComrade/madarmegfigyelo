@@ -19,7 +19,10 @@ const sightingList = document.querySelector("#sighting-list");
 const sightingEmptyMessage = document.querySelector("#sighting-empty-message");
 const sightingCount = document.querySelector("#sighting-count");
 const mapStatus = document.querySelector("#map-status");
+const submitSightingsButton = document.querySelector("#submit-sightings");
 const clearSightingsButton = document.querySelector("#clear-sightings");
+const clearSubmittedSightingsButton = document.querySelector("#clear-submitted-sightings");
+const sightingSubmitResult = document.querySelector("#sighting-submit-result");
 const cityShortcuts = [...document.querySelectorAll(".map-city-shortcuts button")];
 const sightingsStorageKey = "madarkalauz-megfigyelesek";
 const svgNamespace = "http://www.w3.org/2000/svg";
@@ -87,6 +90,7 @@ function loadSightings() {
         Number.isFinite(item.y) &&
         (item.observedOn === undefined || /^\d{4}-\d{2}-\d{2}$/.test(item.observedOn)) &&
         (item.note === undefined || typeof item.note === "string") &&
+        (item.submitted === undefined || typeof item.submitted === "boolean") &&
         item.x >= 0 &&
         item.x <= 600 &&
         item.y >= 0 &&
@@ -107,9 +111,12 @@ function renderSightings() {
   sightingMarkers.replaceChildren();
   sightingList.replaceChildren();
 
-  sightings.forEach((sighting, index) => {
+  const pendingSightings = sightings.filter((sighting) => !sighting.submitted);
+  let pendingIndex = 0;
+
+  sightings.forEach((sighting) => {
     const marker = document.createElementNS(svgNamespace, "g");
-    marker.setAttribute("class", "sighting-marker");
+    marker.setAttribute("class", sighting.submitted ? "sighting-marker submitted-sighting-marker" : "sighting-marker");
     marker.setAttribute("transform", `translate(${sighting.x} ${sighting.y})`);
 
     const title = document.createElementNS(svgNamespace, "title");
@@ -120,10 +127,16 @@ function renderSightings() {
     outerCircle.setAttribute("r", "10");
     marker.append(outerCircle);
 
-    const markerNumber = document.createElementNS(svgNamespace, "text");
-    markerNumber.textContent = String(index + 1);
-    marker.append(markerNumber);
+    if (!sighting.submitted) {
+      const markerNumber = document.createElementNS(svgNamespace, "text");
+      markerNumber.textContent = String(++pendingIndex);
+      marker.append(markerNumber);
+    }
     sightingMarkers.append(marker);
+
+    if (sighting.submitted) {
+      return;
+    }
 
     const item = document.createElement("li");
     item.className = "sighting-item";
@@ -157,9 +170,11 @@ function renderSightings() {
     sightingList.append(item);
   });
 
-  sightingCount.textContent = String(sightings.length);
-  sightingEmptyMessage.hidden = sightings.length > 0;
-  clearSightingsButton.disabled = sightings.length === 0;
+  sightingCount.textContent = String(pendingSightings.length);
+  sightingEmptyMessage.hidden = pendingSightings.length > 0;
+  submitSightingsButton.hidden = pendingSightings.length === 0;
+  clearSightingsButton.hidden = sightings.length === 0;
+  clearSubmittedSightingsButton.hidden = !sightings.some((sighting) => sighting.submitted);
 }
 
 function addSighting(x, y) {
@@ -179,6 +194,8 @@ function addSighting(x, y) {
     note: sightingNote.value.trim(),
   });
   nextSightingId += 1;
+  sightingSubmitResult.hidden = true;
+  sightingSubmitResult.textContent = "";
   renderSightings();
   saveSightings();
   if (canSaveSightings) {
@@ -229,13 +246,48 @@ cityShortcuts.forEach((button) => {
   });
 });
 
+submitSightingsButton.addEventListener("click", () => {
+  const pendingSightings = sightings.filter((sighting) => !sighting.submitted);
+  if (pendingSightings.length === 0) {
+    renderSightings();
+    return;
+  }
+
+  pendingSightings.forEach((sighting) => {
+    sighting.submitted = true;
+  });
+  renderSightings();
+  saveSightings();
+  sightingSubmitResult.textContent = "A megfigyelésedet sikeresen beküldted.";
+  sightingSubmitResult.hidden = false;
+});
+
 clearSightingsButton.addEventListener("click", () => {
   sightings.length = 0;
   renderSightings();
   saveSightings();
+  sightingSubmitResult.textContent = "";
+  sightingSubmitResult.hidden = true;
   if (canSaveSightings) {
     showMapStatus("Az összes megfigyelést töröltük.");
   }
+});
+
+clearSubmittedSightingsButton.addEventListener("click", () => {
+  const submittedSightings = sightings.filter((sighting) => sighting.submitted);
+  if (submittedSightings.length === 0) {
+    renderSightings();
+    return;
+  }
+
+  for (let index = sightings.length - 1; index >= 0; index -= 1) {
+    if (sightings[index].submitted) {
+      sightings.splice(index, 1);
+    }
+  }
+  renderSightings();
+  saveSightings();
+  showMapStatus("A beküldött megfigyeléseket töröltük.");
 });
 
 loadSightings();
