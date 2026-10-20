@@ -1,160 +1,287 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="hu">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Budapesti Madarak</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath fill='%234caf50' d='M16 2c-4 0-8 2-8 6s2 6 6 6 6-2 6-6-4-6-6-6zm0 26c-4 0-8-2-8-6s2-6 6-6 6 2 6 6-4 6-6 6z'/%3E%3Cpath fill='%23ff6b6b' d='M20 10c0 2-2 4-4 4s-4-2-4-4 2-4 4-4 4 2 4 4z'/%3E%3Cpath fill='%23ffd700' d='M16 14c0 1-1 2-2 2s-2-1-2-2 1-2 2-2 2 1 2 2z'/%3E%3C/svg%3E">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#173f34">
+  <meta name="description" content="Ismerd meg Magyarország tíz jellegzetes madarát képekkel és rövid leírásokkal.">
+  <title>Magyarország madarai | Madárkalauz</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%231d5a46'/%3E%3Cpath d='M14 39c8-14 19-18 32-12l8-3-5 8c-2 11-14 18-27 12l-9 3 5-8z' fill='%23f7f1e5'/%3E%3Ccircle cx='39' cy='29' r='2' fill='%231d5a46'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
-    <header>
-        <h1>Budapesti madaraink</h1>
-        <p class="intro">Ez az oldal Budapest leggyakoribb madárfajainak bemutatására készült. Itt megtudhatod, milyen madarakat láthatsz a város parkjaiban, sétányain és a Duna-parton, valamint érdekes tudnivalókat is olvashatsz róluk.</p>
-    </header>
+  <header class="site-header">
+    <a class="brand" href="#kezdet" aria-label="Madárkalauz – vissza a lap tetejére">
+      <span class="brand-mark" aria-hidden="true">✳</span>
+      <span>Madárkalauz</span>
+    </a>
+    <a class="header-link" href="#madarak">Felfedezés <span aria-hidden="true">↓</span></a>
+  </header>
 
-    <main>
-        <section class="bird-card">
-            <img src="images/tokes_rece.jpg" alt="Tőkés réce">
-            <div class="bird-info">
-                <h2>Tőkés réce (Anas platyrhynchos)</h2>
-                <p>A tőkés réce a leggyakoribb vízimadár Budapesten. A Duna-parton, a Városligeti-tóban és más vízfelületeken is nagy számban megtalálható. A hím (gácsér) fémesen csillogó zöld fejjel és fehér nyakörvvel rendelkezik, míg a tojó müves, barna-szürke rejtőszínű. Évente többször is fészkelhet, és fiókáit gyakran látni a vízpartok közelében.</p>
-            </div>
-        </section>
-
-        <section class="bird-card">
-            <img src="images/szencinege.jpg" alt="Széncinege">
-            <div class="bird-info">
-                <h2>Széncinege (Parus major)</h2>
-                <p>A széncinege egy kis termetű, színes madár, amely Budapest parkjaiban és kertjeiben rendkívül gyakori. Fehér orcájáról, fekete sapkájáról és sárga-zöldes tollazatáról könnyen felismerhető. A téli hónapokban szívesen látogatja a madáretetőket, ahol magvakat és olajos magvakat vagy faggyút fogyaszt.</p>
-            </div>
-        </section>
-
-        <section class="bird-card">
-            <img src="images/parlagi_galamb.jpg" alt="Parlagi galamb">
-            <div class="bird-info">
-                <h2>Parlagi galamb (Columba livia domestica)</h2>
-                <p>A városokban és Budapest utcáin mindenhol jelen lévő madár a parlagi galamb. Őse a szirtigalamb, de teljesen alkalmazkodott a városi környezethez. Gyakran láthatók a tereken és az épületek stukkóin, ahol szívesen táplálkoznak az emberek által elszórt élelemből. Intelligens és könnyen megfigyelhető madarak.</p>
-            </div>
-        </section>
-
-        <section class="bird-card">
-            <img src="images/mezei_vereb.jpg" alt="Mezei veréb">
-            <div class="bird-info">
-                <h2>Mezei veréb (Passer montanus)</h2>
-                <p>A mezei veréb egy kistermetű, barna-szürke madár, amely Budapest kertjeiben és parkjaiban gyakran feltűnik. Gesztenyebarna sapkájáról és a fehér orcáján található fekete foltról ismerhető fel. Épületrésekbe és odvakba építi fészkét, tápláléka főként magvakból és rovarokból áll.</p>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <h2>Regisztráció</h2>
-        <p>Iratkozz fel hírlevelünkre, hogy mindig frissen tájékozódj Budapest madarairól!</p>
-        <form id="registrationForm">
-            <div class="form-group">
-                <label for="name">Név: <span class="required">*</span></label>
-                <input type="text" id="name" name="name" required>
-            </div>
-            <div class="form-group">
-                <label for="email">E-mail cím: <span class="required">*</span></label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-                <label for="interest">Érdeklődési kör:</label>
-                <select id="interest" name="interest">
-                    <option value="madarmegfigyelo">Madármegfigyelő</option>
-                    <option value="termeszetbarat">Természetbarát</option>
-                    <option value="diak">Diák</option>
-                    <option value="egyeb">Egyéb</option>
-                </select>
-            </div>
-            <button type="submit" class="submit-btn">Regisztráció</button>
-        </form>
-        <div id="formMessage" class="form-message"></div>
-        <div class="permanent-warning registration-warning">
-            <p><strong>Figyelem:</strong> Ez nem igazi regisztráció, az csak fiktiv!</p>
-        </div>
-    </footer>
-
-    <section class="subscription">
-        <h2>Iratkozz fel hírlevelünkre!</h2>
-        <p>Válassz előfizetési csomagot Budapest madarairól szóló frissítésekhez!</p>
-        <form id="subscriptionForm">
-            <div class="form-group">
-                <label for="subEmail">E-mail címed: <span class="required">*</span></label>
-                <input type="email" id="subEmail" name="subEmail" placeholder="pelda@email.com" required>
-            </div>
-            <div class="form-group">
-                <label for="subName">Neved: <span class="required">*</span></label>
-                <input type="text" id="subName" name="subName" placeholder="Kérjük, adja meg a nevét" required>
-            </div>
-            <div class="form-group">
-                <label>Előfizetési időtartam: <span class="required">*</span></label>
-                <div class="option-cards duration-cards">
-                    <label class="option-card" id="duration-1nap">
-                        <input type="radio" name="duration" value="1nap" required>
-                        <div class="card-content">
-                            <div class="card-title">1 napos</div>
-                            <div class="card-price">490 Ft</div>
-                            <div class="card-desc">Időbeli felvétel</div>
-                        </div>
-                    </label>
-                    <label class="option-card" id="duration-1honomap">
-                        <input type="radio" name="duration" value="1honomap">
-                        <div class="card-content">
-                            <div class="card-title">1 hónapos</div>
-                            <div class="card-price">2 990 Ft</div>
-                            <div class="card-desc">Legnépszerűbb</div>
-                        </div>
-                    </label>
-                    <label class="option-card" id="duration-1ev">
-                        <input type="radio" name="duration" value="1ev">
-                        <div class="card-content">
-                            <div class="card-title">1 éves</div>
-                            <div class="card-price">29 990 Ft</div>
-                            <div class="card-desc">Legteljesebb</div>
-                        </div>
-                    </label>
-                </div>
-            </div>
-            <div class="form-group">
-                <label>Fizetési mód: <span class="required">*</span></label>
-                <div class="option-cards payment-cards">
-                    <label class="option-card" id="payment-googlepay">
-                        <input type="radio" name="payment" value="googlepay" required>
-                        <div class="card-content">
-                            <div class="card-title">Google Pay</div>
-                            <div class="card-desc">Gyors és biztonságos</div>
-                        </div>
-                    </label>
-                    <label class="option-card" id="payment-applepay">
-                        <input type="radio" name="payment" value="applepay">
-                        <div class="card-content">
-                            <div class="card-title">Apple Pay</div>
-                            <div class="card-desc">iPhone, iPad, Mac</div>
-                        </div>
-                    </label>
-                    <label class="option-card" id="payment-kartya">
-                        <input type="radio" name="payment" value="kartya">
-                        <div class="card-content">
-                            <div class="card-title">Bankkártya</div>
-                            <div class="card-desc">Visa, Mastercard</div>
-                        </div>
-                    </label>
-                </div>
-            </div>
-            <button type="submit" class="submit-btn">Feliratkozás</button>
-        </form>
-        <div id="subMessage" class="form-message"></div>
-        <div class="permanent-warning">
-            <p><strong>Figyelem:</strong> Ez nem igazi feliratkozás, az csak fiktiv!</p>
-        </div>
+  <main id="kezdet">
+    <section class="hero" aria-labelledby="page-title">
+      <div class="hero-content">
+        <p class="eyebrow">TERMÉSZET • MAGYARORSZÁG</p>
+        <h1 id="page-title">Szárnyas<br><span>szomszédaink</span></h1>
+        <p class="intro">Magyarország változatos tájain a folyópartoktól a pusztákig számtalan madárfaj él vagy vonul át. Ismerj meg közülük tízet: fedezd fel jellegzetes külsejüket, életmódjukat és azt, miért különlegesek.</p>
+        <a class="button-link" href="#madarak">Megnézem a madarakat <span aria-hidden="true">↓</span></a>
+      </div>
+      <div class="hero-art" role="img" aria-label="Illusztráció egy nádas fölött repülő madárról">
+        <span class="sun"></span>
+        <span class="hill hill-back"></span>
+        <span class="hill hill-front"></span>
+        <span class="bird bird-one" aria-hidden="true">⌁</span>
+        <span class="bird bird-two" aria-hidden="true">⌁</span>
+        <span class="bird bird-three" aria-hidden="true">⌁</span>
+        <span class="hero-caption">Fedezd fel a hazai élővilágot</span>
+      </div>
     </section>
 
-    <div class="disclaimer">
-        <p><strong>Figyelmeztetés:</strong> Ez az oldal fiktív, kizárólag oktatási célokra készült házi feladat.</p>
-    </div>
+    <section class="birds-section" id="madarak" aria-labelledby="birds-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">A KERTTŐL A PUSZTÁIG</p>
+          <h2 id="birds-title">Ismerd meg őket</h2>
+        </div>
+        <p class="section-note">10 faj, 10 különleges történet</p>
+      </div>
 
-    <script src="script.js"></script>
+      <div class="bird-list">
+        <article class="bird-card">
+          <div class="bird-photo">
+            <button class="image-viewer-trigger" type="button" aria-label="Fehér gólya – kép teljes képernyős megtekintése">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/1/13/Ciconia_ciconia_qtl2.jpg" alt="Fehér gólya a természetes élőhelyén" width="900" height="1271" loading="lazy">
+            </button>
+          </div>
+          <div class="bird-copy">
+            <p class="bird-type">VONULÓ GÁZLÓMADÁR</p>
+            <h3>Fehér gólya</h3>
+            <p class="latin-name">Ciconia ciconia</p>
+            <p>A fehér gólya Magyarország egyik legismertebb madara. Tavasszal visszatér, gyakran településeken rak fészket, a telet pedig Afrikában tölti.</p>
+            <a class="source-link" href="https://hu.wikipedia.org/wiki/Feh%C3%A9r_g%C3%B3lya" target="_blank" rel="noopener noreferrer">Olvasd el a Wikipédián <span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+
+        <article class="bird-card">
+          <div class="bird-photo">
+            <button class="image-viewer-trigger" type="button" aria-label="Nagy kócsag – kép teljes képernyős megtekintése">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Lightmatter_egret.jpg" alt="Nagy kócsag a vízparton" width="320" height="480" loading="lazy">
+            </button>
+          </div>
+          <div class="bird-copy">
+            <p class="bird-type">VÍZPARTI GÁZLÓMADÁR</p>
+            <h3>Nagy kócsag</h3>
+            <p class="latin-name">Ardea alba</p>
+            <p>Hófehér tollazatáról és elegáns alakjáról könnyű felismerni. A gémfélék legnagyobb képviselője, és a magyar természetvédelem címermadara.</p>
+            <a class="source-link" href="https://hu.wikipedia.org/wiki/Nagy_k%C3%B3csag" target="_blank" rel="noopener noreferrer">Olvasd el a Wikipédián <span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+
+        <article class="bird-card">
+          <div class="bird-photo">
+            <button class="image-viewer-trigger" type="button" aria-label="Gyurgyalag – kép teljes képernyős megtekintése">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/%C5%9Eahl%C3%BBr-33.jpg" alt="Színes tollazatú gyurgyalag" width="900" height="579" loading="lazy">
+            </button>
+          </div>
+          <div class="bird-copy">
+            <p class="bird-type">SZÍNPOMPÁS VENDÉG</p>
+            <h3>Gyurgyalag</h3>
+            <p class="latin-name">Merops apiaster</p>
+            <p>Élénk színei és hosszú, enyhén lefelé hajló csőre különösen feltűnővé teszik. Főként repülő rovarokra vadászik, és homokfalakba vájt üregekben költ.</p>
+            <a class="source-link" href="https://hu.wikipedia.org/wiki/Gyurgyalag" target="_blank" rel="noopener noreferrer">Olvasd el a Wikipédián <span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+
+        <article class="bird-card">
+          <div class="bird-photo">
+            <button class="image-viewer-trigger" type="button" aria-label="Búbos banka – kép teljes képernyős megtekintése">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/b/be/DSC_3974_Huppe_fasci%C3%A9e_Upupa_epops_%2850064878941%29.jpg" alt="Felmeresztett bóbitájú búbos banka" width="900" height="664" loading="lazy">
+            </button>
+          </div>
+          <div class="bird-copy">
+            <p class="bird-type">KÜLÖNLEGES BÓBITA</p>
+            <h3>Búbos banka</h3>
+            <p class="latin-name">Upupa epops</p>
+            <p>Narancsos-rózsás teste, fekete-fehér szárnya és legyezőszerű bóbitája könnyen felismerhetővé teszi. Hosszú csőrével a talajból keres rovarokat.</p>
+            <a class="source-link" href="https://hu.wikipedia.org/wiki/B%C3%BAbos_banka" target="_blank" rel="noopener noreferrer">Olvasd el a Wikipédián <span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+
+        <article class="bird-card">
+          <div class="bird-photo">
+            <button class="image-viewer-trigger" type="button" aria-label="Vörös vércse – kép teljes képernyős megtekintése">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/2/24/Common_kestrel_falco_tinnunculus.jpg" alt="Vörös vércse egy ágon ülve" width="900" height="1269" loading="lazy">
+            </button>
+          </div>
+          <div class="bird-copy">
+            <p class="bird-type">A LEVEGŐ ÜGYES VADÁSZA</p>
+            <h3>Vörös vércse</h3>
+            <p class="latin-name">Falco tinnunculus</p>
+            <p>Gyakran egy helyben lebegve kémleli a földet, mielőtt lecsapna zsákmányára. Nyílt területeken és települések közelében is találkozhatunk vele.</p>
+            <a class="source-link" href="https://hu.wikipedia.org/wiki/V%C3%B6r%C3%B6s_v%C3%A9rcse" target="_blank" rel="noopener noreferrer">Olvasd el a Wikipédián <span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+
+        <article class="bird-card">
+          <div class="bird-photo">
+            <button class="image-viewer-trigger" type="button" aria-label="Kerecsensólyom – kép teljes képernyős megtekintése">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/3/31/Falco_cherrug_cherrug_qtl1.jpg" alt="Kerecsensólyom közelről" width="900" height="605" loading="lazy">
+            </button>
+          </div>
+          <div class="bird-copy">
+            <p class="bird-type">NAGY TESTŰ RAGADOZÓ</p>
+            <h3>Kerecsensólyom</h3>
+            <p class="latin-name">Falco cherrug</p>
+            <p>Nagy termetű ragadozó madár, amely Európa és Ázsia vidékein honos. A magyar mondavilágban is fontos szerepet kapott; hazánkban fokozott figyelmet érdemel.</p>
+            <a class="source-link" href="https://hu.wikipedia.org/wiki/Kerecsens%C3%B3lyom" target="_blank" rel="noopener noreferrer">Olvasd el a Wikipédián <span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+
+        <article class="bird-card">
+          <div class="bird-photo">
+            <button class="image-viewer-trigger" type="button" aria-label="Túzok – kép teljes képernyős megtekintése">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/9/90/Drop_f%C3%BAzat%C3%BD_%28Otis_tarda%29_%282416576086%29.jpg" alt="Túzok a füves pusztán" width="800" height="600" loading="lazy">
+            </button>
+          </div>
+          <div class="bird-copy">
+            <p class="bird-type">A MAGYAR PUSZTA MADARA</p>
+            <h3>Túzok</h3>
+            <p class="latin-name">Otis tarda</p>
+            <p>A nyílt, füves tájak jellegzetes, nagy termetű madara. A magyar természetvédelem egyik emblematikus faja, a Körös–Maros Nemzeti Park címerállata.</p>
+            <a class="source-link" href="https://hu.wikipedia.org/wiki/T%C3%BAzok" target="_blank" rel="noopener noreferrer">Olvasd el a Wikipédián <span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+
+        <article class="bird-card">
+          <div class="bird-photo">
+            <button class="image-viewer-trigger" type="button" aria-label="Fekete gólya – kép teljes képernyős megtekintése">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/4/46/Black_Stork_-_Ciconia_nigra.jpg" alt="Fekete gólya a vízpart közelében" width="900" height="598" loading="lazy">
+            </button>
+          </div>
+          <div class="bird-copy">
+            <p class="bird-type">AZ ERDŐK CSENDES LAKÓJA</p>
+            <h3>Fekete gólya</h3>
+            <p class="latin-name">Ciconia nigra</p>
+            <p>Rokonánál, a fehér gólyánál rejtettebb életet él. Sötét, fémesen csillogó tollazata és piros csőre teszi különlegessé; erdős, vizes élőhelyeket kedvel.</p>
+            <a class="source-link" href="https://hu.wikipedia.org/wiki/Fekete_g%C3%B3lya" target="_blank" rel="noopener noreferrer">Olvasd el a Wikipédián <span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+
+        <article class="bird-card">
+          <div class="bird-photo">
+            <button class="image-viewer-trigger" type="button" aria-label="Rétisas – kép teljes képernyős megtekintése">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/b/bd/Haliaeetus_albicilla_-Wroc%C5%82aw_Zoo_-Poland-8a.jpg" alt="Rétisas portréja" width="900" height="1200" loading="lazy">
+            </button>
+          </div>
+          <div class="bird-copy">
+            <p class="bird-type">A VIZEK FENSÉGES RAGADOZÓJA</p>
+            <h3>Rétisas</h3>
+            <p class="latin-name">Haliaeetus albicilla</p>
+            <p>Európa egyik legnagyobb ragadozó madara. Széles szárnyairól, erőteljes csőréről és kifejlett korban fehér farkáról ismerhető fel; gyakran víz közelében figyelhető meg.</p>
+            <a class="source-link" href="https://hu.wikipedia.org/wiki/R%C3%A9tisas" target="_blank" rel="noopener noreferrer">Olvasd el a Wikipédián <span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+
+        <article class="bird-card">
+          <div class="bird-photo">
+            <button class="image-viewer-trigger" type="button" aria-label="Daru – kép teljes képernyős megtekintése">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Crane_%28Grus_grus%29_%283%29.JPG" alt="Szürke daru a sekély vízben" width="900" height="675" loading="lazy">
+            </button>
+          </div>
+          <div class="bird-copy">
+            <p class="bird-type">ŐSZI VONULÓ</p>
+            <h3>Daru</h3>
+            <p class="latin-name">Grus grus</p>
+            <p>A szürke daru hosszú lábú, elegáns madár, amely vonuláskor nagy csapatokban kel útra. Őszi pihenőhelyein hangos krúgatása messziről hallatszik.</p>
+            <a class="source-link" href="https://hu.wikipedia.org/wiki/Daru_(mad%C3%A1r)" target="_blank" rel="noopener noreferrer">Olvasd el a Wikipédián <span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="signup-section" id="feliratkozas" aria-labelledby="signup-title">
+      <div class="signup-intro">
+        <p class="eyebrow">MARADJ KÖZEL A TERMÉSZETHEZ</p>
+        <h2 id="signup-title">Madárbarát<br>hírlevél</h2>
+        <p>Válassz egy bemutató csomagot, és képzeld el, hogy minden hónapban új történetek érkeznek a magyar madárvilágról.</p>
+        <span class="signup-decoration" aria-hidden="true">✳</span>
+      </div>
+      <div class="signup-panel">
+        <p class="demo-warning"><strong>Figyelem!</strong> Ez egy bemutató űrlap, nem valódi regisztráció vagy fizetés. Az itt megadott adatokat semmilyen rendszer nem továbbítja és nem menti el.</p>
+        <form id="signup-form" onsubmit="return false;">
+          <div class="field">
+            <label for="full-name">Teljes név <span class="required" aria-label="kötelező">*</span></label>
+            <input id="full-name" name="full-name" type="text" autocomplete="name" placeholder="Például Kovács Anna" required>
+          </div>
+          <div class="field">
+            <label for="email">E-mail-cím <span class="required" aria-label="kötelező">*</span></label>
+            <input id="email" name="email" type="email" autocomplete="email" placeholder="anna@example.com" required>
+          </div>
+          <fieldset class="field">
+            <legend>Válassz előfizetési csomagot <span class="required" aria-label="kötelező">*</span></legend>
+            <div class="plan-options">
+              <label class="choice-card">
+                <input type="radio" name="plan" value="havi" required>
+                <span><strong>Havi</strong><small>1 290 Ft / hó</small></span>
+              </label>
+              <label class="choice-card">
+                <input type="radio" name="plan" value="eves" required>
+                <span><strong>Éves</strong><small>12 900 Ft / év</small></span>
+              </label>
+            </div>
+          </fieldset>
+          <fieldset class="field">
+            <legend>Fizetési mód <span class="required" aria-label="kötelező">*</span></legend>
+            <div class="payment-options">
+              <label><input type="radio" name="payment" value="google-play" required> Google Play</label>
+              <label><input type="radio" name="payment" value="apple-pay"> Apple Pay</label>
+              <label><input type="radio" name="payment" value="bankkartya"> Bankkártya</label>
+              <label><input type="radio" name="payment" value="atutalas"> Átutalás</label>
+            </div>
+          </fieldset>
+          <button class="submit-button" type="submit">Regisztráció és fizetés <span aria-hidden="true">→</span></button>
+          <p class="form-result" id="form-result" role="status" aria-live="polite" hidden></p>
+          <p class="form-footnote">A csillaggal jelölt mezők kitöltése kötelező.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <dialog class="image-viewer" id="image-viewer" aria-label="Fotó teljes képernyős megtekintése">
+    <button class="image-viewer-close" type="button" aria-label="Bezárás">×</button>
+    <img class="image-viewer-image" alt="">
+  </dialog>
+
+  <section class="app-download" aria-labelledby="app-download-title">
+    <div class="app-download-copy">
+      <p class="eyebrow">A ZSEBEDBEN IS VELED</p>
+      <h2 id="app-download-title">Madárbarát hírlevél</h2>
+      <p>Keresd az alkalmazást a telefonod áruházában.</p>
+    </div>
+    <div class="app-store-links">
+      <a class="app-store-badge" href="https://play.google.com/store/search?q=Mad%C3%A1rbar%C3%A1t%20h%C3%ADrlev%C3%A9l&amp;c=apps" target="_blank" rel="noopener noreferrer" aria-label="Keresés a Google Play Áruházban">
+        <svg class="store-icon play-icon" viewBox="0 0 32 36" aria-hidden="true">
+          <path fill="#34A853" d="M2 1.8C1.4 2.4 1 3.3 1 4.5v27c0 1.2.4 2.1 1 2.7l15-16.2L2 1.8z"/>
+          <path fill="#4285F4" d="m2 34.2 18-18.7 5 5-20.1 14.2c-1 .7-2 .5-2.9-.5z"/>
+          <path fill="#FBBC04" d="m20 15.5 6-6.1L3.9.5C3-.1 2.1.3 2 1.8l18 13.7z"/>
+          <path fill="#EA4335" d="m20 15.5 6-6.1 4 2.3c1.8 1 1.8 2.7 0 3.7l-4 2.3-6-2.2z"/>
+        </svg>
+        <span><small>KERESÉS ITT</small><strong>Google Play</strong></span>
+      </a>
+      <a class="app-store-badge" href="https://apps.apple.com/hu/search?term=Mad%C3%A1rbar%C3%A1t%20h%C3%ADrlev%C3%A9l" target="_blank" rel="noopener noreferrer" aria-label="Keresés az App Store-ban">
+        <svg class="store-icon apple-icon" viewBox="0 0 32 36" aria-hidden="true">
+          <path fill="currentColor" d="M25.5 19.1c0-4 3.3-5.9 3.4-6-1.9-2.8-4.8-3.2-5.8-3.3-2.5-.3-4.9 1.5-6.2 1.5s-3.3-1.5-5.4-1.5c-2.8 0-5.4 1.6-6.8 4.1-2.9 5-.7 12.4 2.1 16.5 1.4 2 3 4.2 5.1 4.1 2-.1 2.8-1.3 5.3-1.3s3.2 1.3 5.4 1.3c2.2 0 3.6-2 5-4.1a19 19 0 0 0 2.3-4.7c-.1 0-4.4-1.7-4.4-6.6ZM21.5 7.2A8.3 8.3 0 0 0 23.4 1a8.5 8.5 0 0 0-5.5 2.8 7.8 7.8 0 0 0-1.9 6 7.1 7.1 0 0 0 5.5-2.6Z"/>
+        </svg>
+        <span><small>KERESÉS ITT</small><strong>App Store</strong></span>
+      </a>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <a class="brand footer-brand" href="#kezdet"><span class="brand-mark" aria-hidden="true">✳</span><span>Madárkalauz</span></a>
+    <p>Tanulj, figyelj, óvd a természetet.</p>
+    <p class="footer-source">A madárleírások forrása a magyar Wikipédia; a képek a Wikimedia Commons gyűjteményéből származnak.</p>
+  </footer>
 </body>
 </html>

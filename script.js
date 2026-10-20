@@ -1,64 +1,48 @@
-document.getElementById('registrationForm').addEventListener('submit', function(e) {
-    e.preventDefault();
+const signupForm = document.querySelector("#signup-form");
+const formResult = document.querySelector("#form-result");
+const imageViewer = document.querySelector("#image-viewer");
+const imageViewerImage = imageViewer.querySelector(".image-viewer-image");
+const imageViewerClose = imageViewer.querySelector(".image-viewer-close");
 
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const interest = document.getElementById('interest').value;
-    const messageDiv = document.getElementById('formMessage');
-
-    messageDiv.style.color = '#4caf50';
-    messageDiv.textContent = 'Köszönjük a regisztrációt, ' + name + '! Sikeresen feliratkoztál a hírlevelünkre (' + email + ', érdeklődési kör: ' + interest + ').';
-
-    this.reset();
+document.querySelectorAll(".image-viewer-trigger").forEach((trigger) => {
+  trigger.addEventListener("click", () => {
+    const image = trigger.querySelector("img");
+    imageViewerImage.src = image.src;
+    imageViewerImage.alt = image.alt;
+    imageViewer.showModal();
+  });
 });
 
-// Option card selection styling
-function updateOptionCards() {
-    document.querySelectorAll('.option-card').forEach(card => {
-        const radio = card.querySelector('input[type="radio"]');
-        if (radio.checked) {
-            card.classList.add('selected');
-        } else {
-            card.classList.remove('selected');
-        }
-    });
-}
-
-document.querySelectorAll('.option-card').forEach(card => {
-    card.addEventListener('click', function() {
-        const radio = this.querySelector('input[type="radio"]');
-        if (radio) {
-            radio.checked = true;
-            updateOptionCards();
-        }
-    });
+imageViewerClose.addEventListener("click", () => {
+  imageViewer.close();
 });
 
-document.getElementById('subscriptionForm').addEventListener('submit', function(e) {
-    e.preventDefault();
+imageViewer.addEventListener("cancel", (event) => {
+  event.preventDefault();
+  imageViewer.close();
+});
 
-    const email = document.getElementById('subEmail').value;
-    const name = document.getElementById('subName').value;
-    const duration = document.querySelector('input[name="duration"]:checked').value;
-    const payment = document.querySelector('input[name="payment"]:checked').value;
-    const messageDiv = document.getElementById('subMessage');
+imageViewer.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    event.preventDefault();
+    imageViewer.close();
+  }
+});
 
-    let durationText = '';
-    switch(duration) {
-        case '1nap': durationText = '1 napos (490 Ft)'; break;
-        case '1honomap': durationText = '1 hónapos (2 990 Ft)'; break;
-        case '1ev': durationText = '1 éves (29 990 Ft)'; break;
-    }
+imageViewer.addEventListener("click", (event) => {
+  if (event.target === imageViewer) {
+    imageViewer.close();
+  }
+});
 
-    let paymentText = '';
-    switch(payment) {
-        case 'googlepay': paymentText = 'Google Pay'; break;
-        case 'applepay': paymentText = 'Apple Pay'; break;
-        case 'kartya': paymentText = 'Bankkártya'; break;
-    }
+signupForm.addEventListener("submit", (event) => {
+  event.preventDefault();
 
-    messageDiv.style.color = '#4caf50';
-    messageDiv.innerHTML = 'Köszönjük, ' + name + '! Sikeresen feliratkoztál a hírlevelünkre (' + email + ').<br>Csomag: ' + durationText + '<br>Fizetés: ' + paymentText;
+  if (!signupForm.reportValidity()) {
+    return;
+  }
 
-    this.reset();
+  formResult.textContent = "Sikeres regisztráció! A bemutató fizetés visszaigazolása elkészült. Ez csak próbaüzenet: fizetés nem történt, és adatot nem küldtünk el.";
+  formResult.classList.remove("error");
+  formResult.hidden = false;
 });
