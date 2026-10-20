@@ -1286,11 +1286,42 @@ h1 span {
 
 .payment-options label {
   display: flex;
+  min-height: 40px;
   align-items: center;
-  gap: 7px;
+  gap: 9px;
+  padding: 7px 9px;
+  border: 1px solid #e2e6df;
+  border-radius: 3px;
+  background: #fffefa;
   color: #45554c;
   font-size: 12px;
   cursor: pointer;
+  transition: border-color 140ms ease, background-color 140ms ease;
+}
+
+.payment-options label:has(input:checked) {
+  border-color: var(--green-light);
+  background: #f1f6f0;
+}
+
+.payment-options label:hover {
+  border-color: #a9bba8;
+}
+
+.payment-icon {
+  width: 21px;
+  height: 21px;
+  flex: 0 0 auto;
+  color: var(--green);
+}
+
+.google-pay-icon {
+  padding: 1px;
+}
+
+.apple-pay-icon {
+  padding: 1px;
+  fill: #161c18;
 }
 
 .submit-button {

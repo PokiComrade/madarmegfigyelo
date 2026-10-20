@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#173f34">
-  <meta name="description" content="Ismerd meg Magyarország tíz jellegzetes madarát képekkel és rövid leírásokkal.">
+  <meta name="description" content="Ismerj meg tíz hazai madarat és egy képzeletbeli fajt képekkel, leírásokkal és megfigyelési tippekkel.">
   <title>Magyarország madarai | Madárkalauz</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%231d5a46'/%3E%3Cpath d='M14 39c8-14 19-18 32-12l8-3-5 8c-2 11-14 18-27 12l-9 3 5-8z' fill='%23f7f1e5'/%3E%3Ccircle cx='39' cy='29' r='2' fill='%231d5a46'/%3E%3C/svg%3E">
   <link rel="stylesheet" href="style.css">
@@ -24,7 +24,7 @@
       <div class="hero-content">
         <p class="eyebrow">TERMÉSZET • MAGYARORSZÁG</p>
         <h1 id="page-title">Szárnyas<br><span>szomszédaink</span></h1>
-        <p class="intro">Magyarország változatos tájain a folyópartoktól a pusztákig számtalan madárfaj él vagy vonul át. Ismerj meg közülük tízet: fedezd fel jellegzetes külsejüket, életmódjukat és azt, miért különlegesek.</p>
+        <p class="intro">Magyarország változatos tájain a folyópartoktól a pusztákig számtalan madárfaj él vagy vonul át. Ismerj meg tíz hazai madarat és egy különleges képzeletbeli fajt: fedezd fel jellegzetes külsejüket és történetüket.</p>
         <a class="button-link" href="#madarak">Megnézem a madarakat <span aria-hidden="true">↓</span></a>
       </div>
       <div class="hero-art" role="img" aria-label="Illusztráció egy nádas fölött repülő madárról, a távoli dombon tábortűz mellett nyársakat faragó két emberrel; a nap helyzete a magyarországi időhöz igazodik">
@@ -97,7 +97,7 @@
           <p class="eyebrow">A KERTTŐL A PUSZTÁIG</p>
           <h2 id="birds-title">Ismerd meg őket</h2>
         </div>
-        <p class="section-note">10 faj, 10 különleges történet</p>
+        <p class="section-note">10 hazai madár és 1 képzeletbeli faj</p>
       </div>
 
       <div class="bird-list">
@@ -250,6 +250,20 @@
             <a class="source-link" href="https://hu.wikipedia.org/wiki/Daru_(mad%C3%A1r)" target="_blank" rel="noopener noreferrer">Olvasd el a Wikipédián <span aria-hidden="true">↗</span></a>
           </div>
         </article>
+
+        <article class="bird-card">
+          <div class="bird-photo">
+            <button class="image-viewer-trigger" type="button" aria-label="Bibircsókos csigakeselyű – kép teljes képernyős megtekintése">
+              <img src="assets/bibircsokos-csigakeselyu.png" alt="Képzeletbeli, csigaházmintás tollazatú Bibircsókos csigakeselyű egy erdei ágon" width="1280" height="512" loading="lazy">
+            </button>
+          </div>
+          <div class="bird-copy">
+            <p class="bird-type">KÉPZELETBELI ERDEI MADÁR</p>
+            <h3>Bibircsókos csigakeselyű</h3>
+            <p class="latin-name">Fantáziafaj</p>
+            <p>Ez a különleges képzeletbeli madár csigaházak mintáját idéző tollazatával olvad bele az erdő mohos ágaiba. Széles szárnyával nesztelenül siklik a fák között, erős csőrével pedig az avarban rejtőző csigákat és apró erdei falatokat kutatja. Pihenéskor a tollai közé húzza a fejét, így első pillantásra akár egy öreg fatörzs göcsörtös díszének is tűnhet.</p>
+          </div>
+        </article>
       </div>
     </section>
 
@@ -279,6 +293,7 @@
                   <option>Fekete gólya</option>
                   <option>Rétisas</option>
                   <option selected>Daru</option>
+                  <option>Bibircsókos csigakeselyű</option>
                 </select>
               </div>
               <div class="field map-field">
@@ -403,10 +418,38 @@
           <fieldset class="field" id="payment-fieldset">
             <legend>Fizetési mód <span class="required" id="payment-required" aria-label="kötelező">*</span></legend>
             <div class="payment-options">
-              <label><input type="radio" name="payment" value="google-play" required> Google Play</label>
-              <label><input type="radio" name="payment" value="apple-pay"> Apple Pay</label>
-              <label><input type="radio" name="payment" value="bankkartya"> Bankkártya</label>
-              <label><input type="radio" name="payment" value="atutalas"> Átutalás</label>
+              <label>
+                <input type="radio" name="payment" value="google-pay" required>
+                <svg class="payment-icon google-pay-icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <path fill="#4285F4" d="M21.35 12.23c0-.71-.06-1.39-.18-2.05H12v3.88h5.23a4.48 4.48 0 0 1-1.94 2.94v2.45h3.14c1.84-1.7 2.92-4.2 2.92-7.22Z"/>
+                  <path fill="#34A853" d="M12 21.75c2.63 0 4.83-.87 6.44-2.35l-3.14-2.45c-.87.58-1.98.93-3.3.93-2.54 0-4.7-1.72-5.47-4.04H3.29v2.52A9.72 9.72 0 0 0 12 21.75Z"/>
+                  <path fill="#FBBC05" d="M6.53 13.84a5.84 5.84 0 0 1 0-3.68V7.64H3.29a9.75 9.75 0 0 0 0 8.72l3.24-2.52Z"/>
+                  <path fill="#EA4335" d="M12 6.12c1.43 0 2.71.49 3.72 1.46l2.79-2.79C16.82 3.19 14.62 2.25 12 2.25a9.72 9.72 0 0 0-8.71 5.39l3.24 2.52C7.3 7.84 9.46 6.12 12 6.12Z"/>
+                </svg>
+                <span>Google Pay</span>
+              </label>
+              <label>
+                <input type="radio" name="payment" value="apple-pay">
+                <svg class="payment-icon apple-pay-icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M16.37 12.48c.02 2.08 1.83 2.77 1.85 2.78-.02.05-.29 1.01-.95 2-.57.85-1.17 1.7-2.1 1.72-.91.02-1.21-.55-2.26-.55s-1.39.53-2.25.57c-.9.03-1.59-.93-2.17-1.78-1.19-1.72-2.1-4.85-.88-6.96a3.37 3.37 0 0 1 2.83-1.72c.88-.02 1.71.6 2.25.6.53 0 1.53-.75 2.58-.64.44.02 1.69.18 2.49 1.36-.06.04-1.49.87-1.48 2.62Zm-1.7-5.05c.47-.57.79-1.36.7-2.15-.68.03-1.5.45-1.99 1.02-.44.5-.83 1.3-.73 2.07.76.06 1.55-.39 2.02-.94Z"/>
+                </svg>
+                <span>Apple Pay</span>
+              </label>
+              <label>
+                <input type="radio" name="payment" value="bankkartya">
+                <svg class="payment-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/>
+                  <path d="M2.5 9h19M6 14.5h4"/>
+                </svg>
+                <span>Bankkártya</span>
+              </label>
+              <label>
+                <input type="radio" name="payment" value="atutalas">
+                <svg class="payment-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M3 9h18L12 4 3 9Zm2 2v6m4-6v6m6-6v6m4-6v6M3 20h18"/>
+                </svg>
+                <span>Átutalás</span>
+              </label>
             </div>
           </fieldset>
           <button class="submit-button" type="submit"><span class="submit-label">Regisztráció és fizetés</span><span aria-hidden="true">→</span></button>
@@ -462,7 +505,7 @@
   <footer class="site-footer">
     <a class="brand footer-brand" href="#kezdet"><span class="brand-mark" aria-hidden="true">✳</span><span>Madárkalauz</span></a>
     <p>Tanulj, figyelj, óvd a természetet.</p>
-    <p class="footer-source">A madárleírások forrása a magyar Wikipédia; a képek a Wikimedia Commons gyűjteményéből származnak.</p>
+    <p class="footer-source">A valós madárfajok leírásainak forrása a magyar Wikipédia, képeik a Wikimedia Commonsból származnak. A Bibircsókos csigakeselyű képzeletbeli faj, a hozzá tartozó illusztrációt a felhasználó adta.</p>
   </footer>
 </body>
 </html>
