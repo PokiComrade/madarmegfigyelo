@@ -30,19 +30,19 @@ const sightings = [];
 let nextSightingId = 1;
 let canSaveSightings = true;
 
-function getLocalDateValue(date = new Date()) {
+const getLocalDateValue = (date = new Date()) => { {
   const localDate = new Date(date.getTime() - date.getTimezoneOffset() * 60_000);
   return localDate.toISOString().slice(0, 10);
-}
+}};
 
 sightingDate.value = getLocalDateValue();
 
-function showMapStatus(message, isError = false) {
+const showMapStatus = (message, isError = false) => {
   mapStatus.textContent = message;
   mapStatus.classList.toggle("error", isError);
-}
+};
 
-function saveSightings() {
+const saveSightings = () => {
   if (!canSaveSightings) {
     return;
   }
@@ -53,7 +53,7 @@ function saveSightings() {
     canSaveSightings = false;
     showMapStatus("A jelölés megmarad ezen az oldalon, de a böngésző nem tudta elmenteni.", true);
   }
-}
+};
 
 function loadSightings() {
   let storedSightings;
