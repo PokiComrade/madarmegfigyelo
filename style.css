@@ -332,10 +332,10 @@ h1 span {
 .bird {
   position: absolute;
   z-index: 1;
+  width: 76px;
+  height: 30px;
   color: #163c32;
-  font-size: 88px;
-  font-weight: 700;
-  line-height: 1;
+  fill: currentColor;
   transform: rotate(-25deg);
   animation: bird-flight 20s linear infinite;
   animation-fill-mode: both;
@@ -349,7 +349,8 @@ h1 span {
 .bird-two {
   top: 40%;
   left: 0;
-  font-size: 54px;
+  width: 52px;
+  height: 21px;
   animation-duration: 25s;
   animation-delay: 3s;
 }
@@ -357,7 +358,8 @@ h1 span {
 .bird-three {
   top: 22%;
   left: 0;
-  font-size: 42px;
+  width: 40px;
+  height: 16px;
   animation-duration: 23s;
   animation-delay: 6s;
 }
@@ -457,7 +459,7 @@ h1 span {
 
 @keyframes bird-flight {
   0% {
-    transform: translateX(calc(-100% - 10vw)) rotate(-25deg);
+    transform: translateX(calc(100vw + 10vw)) rotate(-25deg);
   }
 
   48% {
@@ -465,7 +467,7 @@ h1 span {
   }
 
   100% {
-    transform: translate(calc(100vw + 100% + 10vw), 5px) rotate(-25deg);
+    transform: translate(calc(-100% - 10vw), 5px) rotate(-25deg);
   }
 }
 
