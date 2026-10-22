@@ -1633,6 +1633,106 @@ h1 span {
   font-size: 12px;
 }
 
+.footer-downloads {
+  grid-column: 1 / -1;
+  margin-top: 20px;
+  padding-top: 21px;
+  border-top: 1px solid rgb(255 255 255 / 14%);
+}
+
+.footer-download-heading {
+  margin-bottom: 14px;
+}
+
+.footer-download-heading h2 {
+  margin: 0 0 3px;
+  color: #fffefa;
+  font-family: Georgia, serif;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.footer-download-heading p {
+  margin: 0;
+  color: #afc2b4;
+  font-size: 12px;
+}
+
+.footer-download-links {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.footer-download-links a {
+  display: flex;
+  min-width: 0;
+  min-height: 82px;
+  align-items: center;
+  gap: 13px;
+  padding: 14px 15px;
+  border: 1px solid rgb(255 255 255 / 16%);
+  border-radius: 9px;
+  background: rgb(255 255 255 / 5%);
+  color: #fffefa;
+  text-decoration: none;
+  transition: background-color 160ms ease, border-color 160ms ease, transform 160ms ease;
+}
+
+.footer-download-links a:hover {
+  transform: translateY(-2px);
+  border-color: rgb(219 169 94 / 65%);
+  background: rgb(255 255 255 / 9%);
+}
+
+.download-file-icon {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid rgb(219 169 94 / 26%);
+  border-radius: 8px;
+  background: rgb(219 169 94 / 12%);
+  color: #e3bd7d;
+}
+
+.download-file-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.download-file-copy {
+  display: flex;
+  min-width: 0;
+  flex: 1;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.download-file-copy strong {
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.download-file-copy small {
+  color: #afc2b4;
+  font-size: 11px;
+}
+
+.download-arrow {
+  width: 19px;
+  height: 19px;
+  flex: 0 0 auto;
+  color: #e3bd7d;
+  transition: transform 160ms ease;
+}
+
+.footer-download-links a:hover .download-arrow {
+  transform: translateY(2px);
+}
+
 .footer-source {
   grid-column: 1 / -1;
   color: #afc2b4;
@@ -1822,6 +1922,10 @@ h1 span {
   }
 
   .site-footer {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-download-links {
     grid-template-columns: 1fr;
   }
 
